@@ -6,6 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>AWESOME PROJECT!!!</title>
 </head>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 50px;
+}
+.user {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+</style>
 <body>
   <form action="/users" method="post">
     <label for="name">Name:</label>
@@ -15,10 +31,14 @@
     <input type="email" name="email" id="email">
     <button>Submit</button>
   </form>
+  
   <h2>USERS</h2>
   <% for (user of users) { %>
-    <p><%= user.name %></p>
-    <p><%= user.email %></p>
+    <div class="user">
+      <div><%= user.name %></div>
+      <div><%= user.email %></div>
+      <a href="/delete/user/<%= user._id %>">DELETE</a>
+    </div>
     <hr>
   <% } %>
 </body>
